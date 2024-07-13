@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { Heebo, Inter } from "next/font/google";
 import "./globals.css";
-import { inter } from './fonts';
+
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: '--font-Inter', });
+const heebo = Heebo({ subsets: ['latin'], display: "swap", variable: '--font-Heebo', });
 
 
 export const metadata: Metadata = {
@@ -14,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+      <html lang="en">
+          <body className={`${inter.variable} ${heebo.variable} font-Inter`}>{children}</body>
+      </html>
   );
 }
